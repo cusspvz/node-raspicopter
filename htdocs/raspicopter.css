@@ -1,0 +1,17 @@
+body{
+
+	font-family: 'Fauna One', serif;
+	font-size: 100%;
+	color: white;
+	background: black;
+
+}
+
+#footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #333;
+	height: 40px;
+}

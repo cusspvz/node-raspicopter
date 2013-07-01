@@ -1,0 +1,33 @@
+{
+	"name": "raspicopter-client",
+	"description": "RaspiCopter Server/Client programs. The Raspicopter uses, on Client side, GPIO to control elevation. On Client side it uses a PS3 controller.",
+	"keywords": [
+		"raspicopter",
+		"multicopter",
+		"copter",
+		"drone",
+		"raspberry",
+		"pi",
+		"ps3",
+		"controller",
+		"joystick"
+	],
+	"version": "0.1.0",
+	"author": "José Moreira <jmoreira@microdual.com> (http://microdual.com)",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/cusspvz/node-raspicopter.git"
+	},
+	"scripts": {
+		"start": "node raspicopter.js"
+	},
+	"bin": {
+		"raspicopter": "raspicopter.js"
+	},
+	"dependencies": {
+		"socket.io": "latest",
+		"express": "latest",
+		"pi-gpio": "latest",
+		"webrtc.io": "latest"
+	}
+}
