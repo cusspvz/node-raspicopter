@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd /raspicopter;
+
+# Update Git
+git pull;
+
+# Instaling npm
+npm install;
+
+# Install services
+cp init.d/raspicopter /etc/init.d/;
+update-rc.d raspicopter enable;
+update-rc.d raspicopter start;
+
+echo "Updated!!";
+exit 0;

@@ -1,0 +1,34 @@
+#! /bin/sh
+#
+# init script for the Raspicopter!!
+
+### BEGIN INIT INFO
+# Provides:          raspicopter
+# Required-Start:    $local_fs $remote_fs $syslog $sakis3g
+# Required-Stop:     $local_fs $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      1
+# Short-Description: Connect to 3G
+### END INIT INFO
+
+# If you want a command to always run, put it here
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    echo "Starting Raspicopter"
+    # run application you want to start
+    /usr/sbin/node /raspicoter/raspicopter.js;
+    ;;
+  stop)
+    echo "Stopping Raspicopter"
+    # kill application you want to stop
+    killall node;
+    ;;
+  *)
+    echo "Usage: service raspicoter {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0 
