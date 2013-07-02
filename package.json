@@ -27,7 +27,7 @@
 	"dependencies": {
 		"socket.io": "latest",
 		"express": "latest",
-		"pi-gpio": "latest",
+		"pi-blaster.js": "latest",
 		"webrtc.io": "latest"
 	}
 }
