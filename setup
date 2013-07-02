@@ -3,6 +3,7 @@
 cd /raspicopter;
 
 # Update Git
+git reset --hard;
 git pull;
 
 # Instaling npm
