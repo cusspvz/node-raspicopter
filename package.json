@@ -1,5 +1,5 @@
 {
-	"name": "raspicopter-client",
+	"name": "raspicopter",
 	"description": "RaspiCopter Server/Client programs. The Raspicopter uses, on Client side, GPIO to control elevation. On Client side it uses a PS3 controller.",
 	"keywords": [
 		"raspicopter",

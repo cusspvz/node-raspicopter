@@ -10,12 +10,12 @@ var config = {
 	port:{
 		aileron: 0,
 		elevator: 1,
+		throttle: 2,
 		rudder: 5,
-		throttle: 2
 	},
 	default: {
 		aileron: 0,
-		elevation: 0,
+		elevator: 0,
 		throttle: 50,
 		rudder: 0,
 	},
@@ -35,6 +35,11 @@ var setControl = function(control,percent){
 		);
 	}
 	return true;
+}
+
+// Set default PWM's
+for( var x in config.port ){
+	setControl( x, config.default[x] );
 }
 
 ////////////////////////////////////////////////
