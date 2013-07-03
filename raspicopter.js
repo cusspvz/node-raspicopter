@@ -5,6 +5,7 @@ var app = express();
 var server = require('http').createServer(app).listen(80);
 var io = require('socket.io').listen(server);
 var piblaster = require("pi-blaster.js");
+var webRTC = require('webrtc.io').listen(81);
 
 var config = {
 	port:{
