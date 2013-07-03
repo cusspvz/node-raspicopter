@@ -1,10 +1,10 @@
 window.requestAnimationFrame = window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+var gamepad = null;
 document.addEventListener('DOMContentLoaded',function(){
 
 	// System start
 	
 	var socket = io.connect('http://raspicopter.dyndns.org/');
-	var gamepad = null;
 	var elems = {
 		remote_video: document.getElementById('remote_video'),
 		gamepad_status: document.getElementById('gamepad_status'),
@@ -26,11 +26,12 @@ document.addEventListener('DOMContentLoaded',function(){
 	//Moz section for gamepad
 
 	function axisHandler(e) {
-		console.log(e);
+		gamepad.axis = e.axis;
 	}
 
 	function gamepadConnected(e) {
-		elems.socket_status.innerHTML = 'Gamepad Connected!';
+		elems.gamepad_status.innerHTML = 'Gamepad Connected!';
+		gamepad = {};
 		window.addEventListener("MozGamepadAxisMove", axisHandler, false);
 	}
 
@@ -76,14 +77,13 @@ document.addEventListener('DOMContentLoaded',function(){
 						controls.rudder = rudder;
 					delete rudder;
 				}
+				socket.emit('controls',{
+					elevator: controls.elevator,
+					aileton: controls.aileton,
+					throttle: controls.throttle,
+					rudder: controls.rudder,
+				});
 			}
-
-			socket.emit('controls',{
-				elevator: controls.elevator,
-				aileton: controls.aileton,
-				throttle: controls.throttle,
-				rudder: controls.rudder,
-			});
 
 			setTimeout(updateVars, 200);
 		};
