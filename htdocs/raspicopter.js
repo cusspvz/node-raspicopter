@@ -1,3 +1,5 @@
+gamepadSupport.init();
+
 document.addEventListener('DOMContentLoaded',function(){
 
 	// System start
@@ -22,8 +24,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	elems.gamepad_status.innerHTML = 'Not connected...';
 	elems.socket_status.innerHTML = 'Not connected...';
-
-	gamepadSupport.init();
 
 	//////////////////////////////////////////////
 
