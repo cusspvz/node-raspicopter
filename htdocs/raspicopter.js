@@ -26,17 +26,17 @@ document.addEventListener('DOMContentLoaded',function(){
 	//Moz section for gamepad
 
 	function axisHandler(e) {
-		gamepad.axis = e.axis;
+		gamepad.axis[e.axis] = e.value;
 	}
 
 	function gamepadConnected(e) {
 		elems.gamepad_status.innerHTML = 'Gamepad Connected!';
-		gamepad = {};
+		gamepad = {axis:{}};
 		window.addEventListener("MozGamepadAxisMove", axisHandler, false);
 	}
 
 	function buttonhandler(e){
-		console.log('gamepad event', e);
+		gamepad.button[e.button] = e.value;
 	}
 
 	window.addEventListener("MozGamepadConnected", gamepadConnected, false);
