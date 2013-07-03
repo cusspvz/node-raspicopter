@@ -15,7 +15,7 @@
  *
  * @author mwichary@google.com (Marcin Wichary)
  */
- 
+var gamepad = null;
 var gamepadSupport = {
   // A number of typical buttons recognized by Gamepad API and mapped to
   // standard controls. Any extraneous buttons will have larger indexes.
@@ -227,8 +227,8 @@ var gamepadSupport = {
   // Call the tester with new state and ask it to update the visual
   // representation of a given gamepad.
   updateDisplay: function(gamepadId) {
-    var gamepad = gamepadSupport.gamepads[gamepadId];
-
+    gamepad = gamepadSupport.gamepads[gamepadId];
+/*
     // Update all the buttons (and their corresponding labels) on screen.
     tester.updateButton(gamepad.buttons[0], gamepadId, 'button-1');
     tester.updateButton(gamepad.buttons[1], gamepadId, 'button-2');
@@ -282,6 +282,6 @@ var gamepadSupport = {
 
       extraAxisId++;
     }
-
+*/
   }
 };
