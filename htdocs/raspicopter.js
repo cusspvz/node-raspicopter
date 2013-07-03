@@ -1,6 +1,6 @@
 window.requestAnimationFrame = window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
 var gamepad = null;
-var socket = io.connect('http://raspicopter.dyndns.org/');
+var socket = io.connect('http://'+document.location.host+'/');
 var controls = {
 	aileron: 0,
 	elevator: 0,
