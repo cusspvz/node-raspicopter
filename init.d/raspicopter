@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # ------------------------------------------------------------------------------ 
 # SOME INFOS : fairly standard (debian) init script.
 #                 Note that node doesn't create a PID file (hence --make-pidfile) 
@@ -80,10 +80,10 @@ DAEMON=/usr/local/bin/$NAME                 # this SHOULD POINT TO where your no
 
 # Do NOT "set -e"
 
-[ $UID -eq "0" ] && LOCAL_VAR_RUN=/var/run # in case this script is run by root, override user setting
+[ "$UID" == "0" ] && LOCAL_VAR_RUN=/var/run # in case this script is run by root, override user setting
 THIS_ARG=$0
 INIT_SCRIPT_NAME=`basename $THIS_ARG`
-[ -h $THIS_ARG ] && INIT_SCRIPT_NAME=`basename $(readlink $THIS_ARG)` # in case of symlink
+[ -h "$THIS_ARG" ] && INIT_SCRIPT_NAME=`basename $(readlink $THIS_ARG)` # in case of symlink
 INIT_SCRIPT_NAME_NOEXT=${INIT_SCRIPT_NAME%.*}                            
 PIDFILE="$LOCAL_VAR_RUN/$INIT_SCRIPT_NAME_NOEXT.pid"
 SCRIPTNAME=/etc/init.d/$INIT_SCRIPT_NAME
