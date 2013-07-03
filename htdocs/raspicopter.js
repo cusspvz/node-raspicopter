@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 		var updateVars = function(){
 
-			if(typeof gamepad == 'object'){
+			if(gamepad !== null){
 				if(typeof gamepad.axes[0] != 'undefined'){
 					var throttle = ( gamepad.axes[0] + 1 ) / 2 * 100;
 					if(throttle > 10)
