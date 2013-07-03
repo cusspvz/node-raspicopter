@@ -56,7 +56,7 @@ var gamepadSupport = {
     if (!gamepadSupportAvailable) {
       // It doesn’t seem Gamepad API is available – show a message telling
       // the visitor about it.
-      tester.showNotSupported();
+      //tester.showNotSupported();
     } else {
       // Firefox supports the connect/disconnect event, so we attach event
       // handlers to those.
@@ -82,10 +82,12 @@ var gamepadSupport = {
     gamepadSupport.gamepads.push(event.gamepad);
 
     // Ask the tester to update the screen to show more gamepads.
-    tester.updateGamepads(gamepadSupport.gamepads);
+    //tester.updateGamepads(gamepadSupport.gamepads);
 
     // Start the polling loop to monitor button changes.
     gamepadSupport.startPolling();
+
+    elems.gamepad_status.innerHTML = 'Gamepad Connected...';
   },
 
   // This will only be executed on Firefox.
@@ -104,7 +106,7 @@ var gamepadSupport = {
     }
 
     // Ask the tester to update the screen to remove the gamepad.
-    tester.updateGamepads(gamepadSupport.gamepads);
+    //tester.updateGamepads(gamepadSupport.gamepads);
   },
 
   /**
@@ -219,7 +221,7 @@ var gamepadSupport = {
       // Ask the tester to refresh the visual representations of gamepads
       // on the screen.
       if (gamepadsChanged) {
-        tester.updateGamepads(gamepadSupport.gamepads);
+        //tester.updateGamepads(gamepadSupport.gamepads);
       }
     }
   },

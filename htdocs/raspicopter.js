@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded',function(){
 
 	// System start
-	gamepadSupport.init();
+	
 	var socket = io.connect('http://localhost/');
 	var gamepad = {
 		connected: false,
@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded',function(){
 	};
 	var elems = {
 		remote_video: document.getElementById('remote_video'),
-		status: document.getElementById('status'),
+		gamepad_status: document.getElementById('gamepad_status'),
+		socket_status: document.getElementById('gamepad_status'),
 	};
 
 	var controls = {
@@ -19,13 +20,16 @@ document.addEventListener('DOMContentLoaded',function(){
 		rudder: 0,
 	};
 
+	elems.gamepad_status.innerHTML = 'Not connected...';
+	elems.socket_status.innerHTML = 'Not connected...';
+
+	gamepadSupport.init();
+
 	//////////////////////////////////////////////
-		
-	elems.status.innerHTML = 'Connecting...';
 
 	// Main App
 	socket.on('connect', function(){
-		elems.status.innerHTML = 'Connected!';
+		elems.socket_status.innerHTML = 'Socket Connected!';
 
 		socket.on('event', function(data){
 			console.log(data);
