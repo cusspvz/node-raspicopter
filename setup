@@ -12,6 +12,7 @@ git pull;
 [ ! -d "node_modules" ] && npm install;
 
 # Install services
+mkdir -p /usr/local/var/run;
 cp init.d/raspicopter /etc/init.d/raspicopter;
 chmod ugo+x /etc/init.d/raspicopter;
 update-rc.d raspicopter enable;
