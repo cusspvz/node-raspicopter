@@ -25,7 +25,7 @@ case "$1" in
   stop)
     echo "Stopping Raspicopter"
     # kill application you want to stop
-    killall node;
+    killall node > /dev/null;
     ;;
   *)
     echo "Usage: service raspicoter {start|stop}"

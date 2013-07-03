@@ -1,5 +1,7 @@
 #!/bin/bash
 
+service raspicopter stop;
+
 cd /raspicopter;
 
 # Update Git
@@ -16,4 +18,5 @@ update-rc.d raspicopter enable;
 update-rc.d raspicopter start;
 
 echo "Updated!!";
+service raspicopter start;
 exit 0;
