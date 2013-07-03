@@ -18,7 +18,8 @@ case "$1" in
   start)
     echo "Starting Raspicopter"
     # run application you want to start
-    /usr/local/bin/node /raspicoter/raspicopter.js &
+    cd /raspicopter;
+    node /raspicoter/raspicopter.js &
     exit 0;
     ;;
   stop)
