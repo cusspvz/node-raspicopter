@@ -85,7 +85,9 @@ document.addEventListener('DOMContentLoaded',function(){
 				});
 			}
 
-			setTimeout(updateVars, 200);
+			setTimeout(function(){
+				updateVars();
+			}, 200);
 		};
 
 		socket.on('disconnect', function(){
