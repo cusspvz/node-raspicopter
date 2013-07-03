@@ -1,7 +1,12 @@
 window.requestAnimationFrame = window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
 var gamepad = null;
 var socket = io.connect('http://raspicopter.dyndns.org/');
-
+var controls = {
+	aileron: 0,
+	elevator: 0,
+	throttle: 50,
+	rudder: 0,
+};
 var updateVars = function(){
 
 	if(gamepad !== null){
@@ -49,13 +54,6 @@ document.addEventListener('DOMContentLoaded',function(){
 		remote_video: document.getElementById('remote_video'),
 		gamepad_status: document.getElementById('gamepad_status'),
 		socket_status: document.getElementById('socket_status'),
-	};
-
-	var controls = {
-		aileron: 0,
-		elevator: 0,
-		throttle: 50,
-		rudder: 0,
 	};
 
 	elems.gamepad_status.innerHTML = 'Not connected...';
