@@ -7,7 +7,7 @@ git reset --hard;
 git pull;
 
 # Instaling npm
-npm install;
+[ ! -d "node_modules" ] && npm install;
 
 # Install services
 cp init.d/raspicopter /etc/init.d/raspicopter;
