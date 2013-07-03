@@ -51,32 +51,12 @@
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin # modify if you need
 
-DAEMON_ARGS="/raspicopter/raspicopter.js"               # path to your node.js server/app
-                                            # NB: don't use ~/ in path
-
-DESC="Raspicopter Server"                  # whatever fancy description you like
-
-NODEUSER=root:root                     # USER who OWNS the daemon process (no matter whoever runs the init script)
-                                            # user:group (if no group is specified, the primary GID for that user is used)
-
-LOCAL_VAR_RUN=/usr/local/var/run            # in case the init script is run by non-root user, you need to
-                                            # indicate a directory writeable by $NODEUSER to store the PID file
-                                            # NB : 1) /usr/local/var/run does not exist by DEFAULT. Either create it
-                                            #      or choose one of your own liking.
-                                            #      2) node, npm,... are best NOT installed/run as ROOT.
-                                            #         (see here: https://github.com/isaacs/npm/blob/master/README.md)
-
-NAME="node"                                   # name of the node.js executable
-DAEMON=/usr/local/bin/$NAME                 # this SHOULD POINT TO where your node executable is
-#
-#                                                                              #
-#                   END </MODIFY TO REFLECT YOUR SETTINGS>                     #
-#                (Nothing else to modify from this point on...)                #
-# ------------------------------------------------------------------------------ 
-
-
-
-
+DAEMON_ARGS="/raspicopter/raspicopter.js"
+DESC="Raspicopter Server"
+NODEUSER="root:root"
+LOCAL_VAR_RUN=/usr/local/var/run
+NAME="node"
+DAEMON=/usr/local/bin/$NAME
 
 # Do NOT "set -e"
 

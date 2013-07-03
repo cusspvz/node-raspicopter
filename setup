@@ -11,11 +11,26 @@ git pull;
 # Instaling npm
 [ ! -d "node_modules" ] && npm install;
 
-# Install services
+# Install things
+apt-get update;
+apt-get install dd-client git;
+
 mkdir -p /usr/local/var/run;
-cp init.d/raspicopter /etc/init.d/raspicopter;
+
+cp -fR root/* /;
+
+chmod ugo+x /usr/sbin/sakis3g;
+chmod ugo+x /etc/init.d/sakis3g;
+update-rc.d sakis3g defaults;
+update-rc.d sakis3g start;
+
+chmod ugo+x /usr/sbin/pi-blaster;
+chmod ugo+x /etc/init.d/pi-blaster;
+update-rc.d pi-blaster defaults;
+update-rc.d pi-blaster start;
+
 chmod ugo+x /etc/init.d/raspicopter;
-update-rc.d raspicopter enable;
+update-rc.d raspicopter defaults;
 update-rc.d raspicopter start;
 
 echo "Updated!!";
