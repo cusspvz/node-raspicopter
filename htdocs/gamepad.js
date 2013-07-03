@@ -86,8 +86,6 @@ var gamepadSupport = {
 
     // Start the polling loop to monitor button changes.
     gamepadSupport.startPolling();
-
-    elems.gamepad_status.innerHTML = 'Gamepad Connected...';
   },
 
   // This will only be executed on Firefox.
@@ -147,6 +145,8 @@ var gamepadSupport = {
         window.mozRequestAnimationFrame(gamepadSupport.tick);
       } else if (window.webkitRequestAnimationFrame) {
         window.webkitRequestAnimationFrame(gamepadSupport.tick);
+      }else{
+        setTimeout(gamepadSupport.tick,100);
       }
       // Note lack of setTimeout since all the browsers that support
       // Gamepad API are already supporting requestAnimationFrame().
@@ -229,6 +229,7 @@ var gamepadSupport = {
   // Call the tester with new state and ask it to update the visual
   // representation of a given gamepad.
   updateDisplay: function(gamepadId) {
+    elems.gamepad_status.innerHTML = 'Gamepad Connected...';
     gamepad = gamepadSupport.gamepads[gamepadId];
 /*
     // Update all the buttons (and their corresponding labels) on screen.
