@@ -10,7 +10,8 @@ git pull;
 npm install;
 
 # Install services
-cp init.d/raspicopter /etc/init.d/;
+cp init.d/raspicopter /etc/init.d/raspicopter;
+chmod ugo+x /etc/init.d/raspicopter;
 update-rc.d raspicopter enable;
 update-rc.d raspicopter start;
 
