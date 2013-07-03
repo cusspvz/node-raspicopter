@@ -2,6 +2,46 @@ window.requestAnimationFrame = window.mozRequestAnimationFrame || window.webkitR
 var gamepad = null;
 var socket = io.connect('http://raspicopter.dyndns.org/');
 
+var updateVars = function(){
+
+	if(gamepad !== null){
+		if(typeof gamepad.axes[0] != 'undefined'){
+			var throttle = ( gamepad.axes[0] + 1 ) / 2 * 100;
+			if(throttle > 10)
+				controls.throttle = throttle;
+			delete throttle;
+		}
+		if(typeof gamepad.axes[1] != 'undefined'){
+			var elevator = ( gamepad.axes[1] + 1 ) / 2 * 100;
+			if(elevator > 10)
+				controls.elevator = elevator;
+			delete elevator;
+		}
+		if(typeof gamepad.axes[2] != 'undefined'){
+			var aileron = ( gamepad.axes[2] + 1 ) / 2 * 100;
+			if(aileron > 10)
+				controls.aileron = aileron;
+			delete aileron;
+		}
+		if(typeof gamepad.axes[3] != 'undefined'){
+			var rudder = ( gamepad.axes[3] + 1 ) / 2 * 100;
+			if(rudder > 10)
+				controls.rudder = rudder;
+			delete rudder;
+		}
+		socket.emit('controls',{
+			elevator: controls.elevator,
+			aileton: controls.aileton,
+			throttle: controls.throttle,
+			rudder: controls.rudder,
+		});
+	}
+
+	setTimeout(function(){
+		updateVars();
+	}, 200);
+};
+
 document.addEventListener('DOMContentLoaded',function(){
 
 	// System start
@@ -55,45 +95,6 @@ document.addEventListener('DOMContentLoaded',function(){
 			console.log(data);
 		});
 
-		var updateVars = function(){
-
-			if(gamepad !== null){
-				if(typeof gamepad.axes[0] != 'undefined'){
-					var throttle = ( gamepad.axes[0] + 1 ) / 2 * 100;
-					if(throttle > 10)
-						controls.throttle = throttle;
-					delete throttle;
-				}
-				if(typeof gamepad.axes[1] != 'undefined'){
-					var elevator = ( gamepad.axes[1] + 1 ) / 2 * 100;
-					if(elevator > 10)
-						controls.elevator = elevator;
-					delete elevator;
-				}
-				if(typeof gamepad.axes[2] != 'undefined'){
-					var aileron = ( gamepad.axes[2] + 1 ) / 2 * 100;
-					if(aileron > 10)
-						controls.aileron = aileron;
-					delete aileron;
-				}
-				if(typeof gamepad.axes[3] != 'undefined'){
-					var rudder = ( gamepad.axes[3] + 1 ) / 2 * 100;
-					if(rudder > 10)
-						controls.rudder = rudder;
-					delete rudder;
-				}
-				socket.emit('controls',{
-					elevator: controls.elevator,
-					aileton: controls.aileton,
-					throttle: controls.throttle,
-					rudder: controls.rudder,
-				});
-			}
-
-			setTimeout(function(){
-				updateVars();
-			}, 200);
-		};
 		updateVars();
 
 		socket.on('disconnect', function(){
