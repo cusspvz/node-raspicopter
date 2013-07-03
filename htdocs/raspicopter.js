@@ -1,14 +1,10 @@
-gamepadSupport.init();
-
+window.requestAnimationFrame = window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
 document.addEventListener('DOMContentLoaded',function(){
 
 	// System start
 	
 	var socket = io.connect('http://raspicopter.dyndns.org/');
-	var gamepad = {
-		connected: false,
-		configured: false,
-	};
+	var gamepad = null;
 	var elems = {
 		remote_video: document.getElementById('remote_video'),
 		gamepad_status: document.getElementById('gamepad_status'),
@@ -26,6 +22,31 @@ document.addEventListener('DOMContentLoaded',function(){
 	elems.socket_status.innerHTML = 'Not connected...';
 
 	//////////////////////////////////////////////
+
+	//Moz section for gamepad
+
+	function axisHandler(e) {
+		console.log(e);
+		if(e.axis == 0) {
+			if(e.value == -1) {input.left=true; input.right=false; }
+			else if(e.value ==1) {input.left=false; input.right=true;}
+			else {input.left=false; input.right=false;}
+		}
+	}
+
+	function gamepadConnected(e) {
+		console.log("got a gamepad");
+		window.addEventListener("MozGamepadAxisMove", axisHandler, false);
+	}
+
+	function buttonhandler(e){
+		document.location.href='http://www.google.com';
+	}
+
+	window.addEventListener("MozGamepadConnected", gamepadConnected, false);
+	window.addEventListener("MozGamepadButtonDown", buttonhandler, false);
+
+	window.requestAnimationFrame(loop);
 
 	// Main App
 	socket.on('connect', function(){
