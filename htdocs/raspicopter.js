@@ -30,12 +30,12 @@ document.addEventListener('DOMContentLoaded',function(){
 	}
 
 	function gamepadConnected(e) {
-		console.log("got a gamepad");
+		elems.socket_status.innerHTML = 'Gamepad Connected!';
 		window.addEventListener("MozGamepadAxisMove", axisHandler, false);
 	}
 
 	function buttonhandler(e){
-		document.location.href='http://www.google.com';
+		console.log('gamepad event', e);
 	}
 
 	window.addEventListener("MozGamepadConnected", gamepadConnected, false);
