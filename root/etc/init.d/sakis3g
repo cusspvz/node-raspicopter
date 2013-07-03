@@ -13,7 +13,7 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="Daemon for Sakis3G"
 NAME=sakis3g
 DAEMON=/usr/sbin/$NAME
-DAEMON_ARGS='start --console --apn="internet.vodafone.pt"'
+DAEMON_ARGS='start --sudo --console --apn=internet.vodafone.pt'
 SCRIPTNAME=/etc/init.d/$NAME
 
 # Exit if the package is not installed

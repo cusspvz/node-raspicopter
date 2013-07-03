@@ -2,6 +2,10 @@
 
 service raspicopter stop;
 
+# Install things
+apt-get update;
+apt-get install -y ddclient git npm node ppp;
+
 cd /raspicopter;
 
 # Update Git
@@ -11,9 +15,6 @@ git pull;
 # Instaling npm
 [ ! -d "node_modules" ] && npm install;
 
-# Install things
-apt-get update;
-apt-get install -y dd-client git npm node;
 
 cd /usr/local;
 tar xzvf /raspicopter/node-v0.8.20-linux-arm-pi.tar.gz --strip=1;
