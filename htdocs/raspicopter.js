@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	// System start
 	
-	var socket = io.connect('http://localhost/');
+	var socket = io.connect('http://raspicopter.dyndns.org/');
 	var gamepad = {
 		connected: false,
 		configured: false,
