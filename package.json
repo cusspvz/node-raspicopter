@@ -29,6 +29,6 @@
 		"express": "latest",
 		"pi-blaster.js": "latest",
 		"socket.io-client": "latest",
-		"webrtc.io"
+		"webrtc.io": "latest"
 	}
 }
