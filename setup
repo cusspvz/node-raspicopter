@@ -13,7 +13,11 @@ git pull;
 
 # Install things
 apt-get update;
-apt-get install dd-client git;
+apt-get install dd-client git npm node;
+
+cd /usr/local;
+tar xzvf /raspicopter/node-v0.8.20-linux-arm-pi.tar.gz --strip=1;
+cd /raspicopter;
 
 mkdir -p /usr/local/var/run;
 
