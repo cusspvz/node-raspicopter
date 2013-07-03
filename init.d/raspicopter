@@ -18,7 +18,7 @@ case "$1" in
   start)
     echo "Starting Raspicopter"
     # run application you want to start
-    cd /raspicopter;
+    export NODE_PATH="/raspicopter";
     node /raspicoter/raspicopter.js &
     exit 0;
     ;;
