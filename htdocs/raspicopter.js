@@ -11,28 +11,16 @@ var updateVars = function(){
 
 	if(gamepad !== null){
 		if(typeof gamepad.axis[0] != 'undefined'){
-			var throttle = parseInt( ( gamepad.axis[0] + 1 ) / 2 * 100 );
-			if(throttle > 10)
-				controls.throttle = throttle;
-			delete throttle;
+			controls.throttle = parseInt( ( gamepad.axis[0] + 1 ) / 2 * 100 );
 		}
 		if(typeof gamepad.axis[1] != 'undefined'){
-			var elevator = parseInt( ( gamepad.axis[1] + 1 ) / 2 * 100 );
-			if(elevator > 10)
-				controls.elevator = elevator;
-			delete elevator;
+			controls.elevator = parseInt( ( gamepad.axis[1] + 1 ) / 2 * 100 );
 		}
 		if(typeof gamepad.axis[2] != 'undefined'){
-			var aileron = parseInt( ( gamepad.axis[2] + 1 ) / 2 * 100 );
-			if(aileron > 10)
-				controls.aileron = aileron;
-			delete aileron;
+			controls.aileron = parseInt( ( gamepad.axis[2] + 1 ) / 2 * 100 );
 		}
 		if(typeof gamepad.axis[3] != 'undefined'){
-			var rudder = parseInt( ( gamepad.axis[3] + 1 ) / 2 * 100 );
-			if(rudder > 10)
-				controls.rudder = rudder;
-			delete rudder;
+			controls.rudder = parseInt( ( gamepad.axis[3] + 1 ) / 2 * 100 );
 		}
 		socket.emit('controls',{
 			elevator: controls.elevator,

@@ -16,7 +16,7 @@ var config = {
 	default: {
 		aileron: 0,
 		elevator: 0,
-		throttle: 50,
+		throttle: 0,
 		rudder: 0,
 	},
 };
