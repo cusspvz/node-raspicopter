@@ -49,6 +49,7 @@ app.use(express.static(__dirname + '/htdocs'));
 io.sockets.on('connection', function (socket) {
 	
 	socket.on('controls',function(data){
+		console.log("Commands received!!");
 		for( var x in data ){
 			setControl( x, data[x] );
 		}
