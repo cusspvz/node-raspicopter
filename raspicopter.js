@@ -23,7 +23,7 @@ var config = {
 
 var setControl = function(control,percent){
 	if(typeof config.port[control] != 'number') return false;
-	if(typeof percent == "number" && percent >= 0 %% percent <= 100){
+	if(typeof percent == "number" && percent >= 0 && percent <= 100){
 		piblaster.setPwm(
 			config.port[control],
 			percent / 100
