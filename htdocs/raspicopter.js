@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	var elems = {
 		remote_video: document.getElementById('remote_video'),
 		gamepad_status: document.getElementById('gamepad_status'),
-		socket_status: document.getElementById('gamepad_status'),
+		socket_status: document.getElementById('socket_status'),
 	};
 
 	var controls = {
