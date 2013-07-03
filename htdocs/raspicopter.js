@@ -27,11 +27,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	function axisHandler(e) {
 		console.log(e);
-		if(e.axis == 0) {
-			if(e.value == -1) {input.left=true; input.right=false; }
-			else if(e.value ==1) {input.left=false; input.right=true;}
-			else {input.left=false; input.right=false;}
-		}
 	}
 
 	function gamepadConnected(e) {
@@ -45,8 +40,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	window.addEventListener("MozGamepadConnected", gamepadConnected, false);
 	window.addEventListener("MozGamepadButtonDown", buttonhandler, false);
-
-	window.requestAnimationFrame(loop);
 
 	// Main App
 	socket.on('connect', function(){
