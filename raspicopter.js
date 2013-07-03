@@ -51,6 +51,7 @@ io.sockets.on('connection', function (socket) {
 	socket.on('controls',function(data){
 		console.log("Commands received!!");
 		for( var x in data ){
+			console.log("Command "+x+" is "+data[x]+"!!");
 			setControl( x, data[x] );
 		}
 	});
