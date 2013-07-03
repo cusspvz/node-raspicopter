@@ -6,6 +6,12 @@ var server = require('http').createServer(app).listen(80);
 var io = require('socket.io').listen(server);
 var piblaster = require("pi-blaster.js");
 var webRTC = require('webrtc.io').listen(81);
+var sys = require('sys');
+var exec = require('child_process').exec;
+
+exec("/usr/sbin/pi-blaster --pcm", function (error, stdout, stderr) {
+	sys.print("pi-blaster: \n" + stdout);
+});
 
 var config = {
 	port:{
