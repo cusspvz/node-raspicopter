@@ -31,7 +31,12 @@ document.addEventListener('DOMContentLoaded',function(){
 
 	function gamepadConnected(e) {
 		elems.gamepad_status.innerHTML = 'Gamepad Connected!';
-		gamepad = {axis:{}};
+		gamepad = {axis:{
+			0:0,
+			1:0,
+			2:0,
+			3:0
+		}};
 		window.addEventListener("MozGamepadAxisMove", axisHandler, false);
 	}
 
@@ -89,6 +94,7 @@ document.addEventListener('DOMContentLoaded',function(){
 				updateVars();
 			}, 200);
 		};
+		updateVars();
 
 		socket.on('disconnect', function(){
 			console.log('disconnected');
