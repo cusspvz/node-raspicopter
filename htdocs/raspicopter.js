@@ -1,10 +1,10 @@
 window.requestAnimationFrame = window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
 var gamepad = null;
+var socket = io.connect('http://raspicopter.dyndns.org/');
+
 document.addEventListener('DOMContentLoaded',function(){
 
 	// System start
-	
-	var socket = io.connect('http://raspicopter.dyndns.org/');
 	var elems = {
 		remote_video: document.getElementById('remote_video'),
 		gamepad_status: document.getElementById('gamepad_status'),
