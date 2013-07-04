@@ -34,7 +34,7 @@
 # ______________________________________________________________________________ 
 ### BEGIN INIT INFO
 # Provides:          raspicopter
-# Required-Start:    $remote_fs $named $syslog $sakis3g
+# Required-Start:    $remote_fs $named $syslog $networking $sakis3g
 # Required-Stop:     $remote_fs $named $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6

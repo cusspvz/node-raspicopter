@@ -4,7 +4,7 @@ service raspicopter stop;
 
 # Install things
 apt-get update;
-apt-get install -y ddclient git npm node ppp;
+apt-get install -y ddclient git npm node ppp hostapd udhcpd;
 
 cd /raspicopter;
 
