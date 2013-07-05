@@ -38,6 +38,9 @@ chmod ugo+x /etc/init.d/raspicopter;
 update-rc.d raspicopter defaults;
 update-rc.d raspicopter start;
 
+update-rc.d hostapd enable;
+update-rc.d udhcpd enable;
+
 echo "Updated!!";
 service raspicopter start;
 exit 0;
