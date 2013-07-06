@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ifconfig wlan0 up 192.168.42.1
+service udhcpd restart
