@@ -3,6 +3,10 @@ iface lo inet loopback
 
 iface eth0 inet dhcp
 
+auto wwan0
+allow-hotplug wwan0
+iface wwan0 inet dhcp
+
 auto wlan0
 allow-hotplug wlan0
 iface wlan0 inet static
