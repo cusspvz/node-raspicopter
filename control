@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# PORTS
+front_right="0";
+front_left="1";
+back_right="3";
+back_left="4";
+
+# Pi blaster
+PWM="/dev/pi-blaster";
+
+# Calculate value
+VALUE=$( bc <<< "scale=3; $2 / 100" );
+
+
+case "$1" in
+	all)
+		echo "${front_left}=${VALUE}" > "${PWM}";
+		echo "${front_right}=${VALUE}" > "${PWM}";
+		echo "${back_left}=${VALUE}" > "${PWM}";
+		echo "${back_right}=${VALUE}" > "${PWM}";
+		;;
+	left)
+		echo "${front_left}=${VALUE}" > "${PWM}";
+		echo "${back_left}=${VALUE}" > "${PWM}";
+		;;
+	right)
+		echo "${front_right}=${VALUE}" > "${PWM}";
+		echo "${back_right}=${VALUE}" > "${PWM}";
+		;;
+	front)
+		echo "${front_left}=${VALUE}" > "${PWM}";
+		echo "${front_right}=${VALUE}" > "${PWM}";
+		;;
+	back)
+		echo "${back_left}=${VALUE}" > "${PWM}";
+		echo "${back_right}=${VALUE}" > "${PWM}";
+		;;
+	front_left)
+		echo "${front_left}=${VALUE}" > "${PWM}";
+		;;
+	front_right)
+		echo "${front_right}=${VALUE}" > "${PWM}";
+		;;
+	back_left)
+		echo "${back_left}=${VALUE}" > "${PWM}";
+		;;
+	back_right)
+		echo "${back_right}=${VALUE}" > "${PWM}";
+		;;
+	*)
+		echo "control all|left|right|back|front|front_left|front_right|back_left|back_right percent";
+esac

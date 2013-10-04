@@ -1,0 +1,12 @@
+#!/bin/bash
+
+pi-blaster;
+./control all 100;
+
+echo "Connect now the escs";
+
+sleep 10;
+./control all 10;
+sleep 1;
+./control all 50;
+echo "Calibrated";
